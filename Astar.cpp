@@ -248,7 +248,7 @@ struct Map
 			for (int i = -1; i <= 1; i++)
 				for (int j = -1; j <= 1; j++)
 				{
-					if (!(i == 0 && j == 0) && inGrid(current->x + i, current->y + j)) // Check if inGrid and not Same Node
+					if ((i == 0 || j == 0) && !(i == 0 && j == 0) && inGrid(current->x + i, current->y + j)) // Check if inGrid and not Same Node // No Diagonal
 					{
 						Node* Neighbor = &grid[current->y + j][current->x + i];
 						if (Neighbor->valid && !Neighbor->closed)
